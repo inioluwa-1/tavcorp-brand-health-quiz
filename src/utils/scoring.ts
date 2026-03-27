@@ -30,6 +30,7 @@ const ACTION_PLANS = configData.actionPlans as Record<
     trustFactor: string;
   }
 >;
+const THRESHOLDS = configData.scoring.thresholds as Record<string, number>;
 
 export function getQuestionScore(q: QuizQuestion, answer: Answer): number {
   if (q.format === "grid") return GRID_SCORES[answer as string] ?? 1;
@@ -73,12 +74,12 @@ export function calculateResults(answers: Record<number, Answer>) {
 }
 
 // ── Letter grade ────────────────────────────────────────────────────────
-// A = 90–100%, B = 80–89%, C = 70–79%, D = 60–69%, F = below 60%
+// Thresholds loaded from config.json for easy customization
 export function getGrade(score: number): string {
-  if (score >= 90) return "A";
-  if (score >= 80) return "B";
-  if (score >= 70) return "C";
-  if (score >= 60) return "D";
+  if (score >= THRESHOLDS.A) return "A";
+  if (score >= THRESHOLDS.B) return "B";
+  if (score >= THRESHOLDS.C) return "C";
+  if (score >= THRESHOLDS.D) return "D";
   return "F";
 }
 

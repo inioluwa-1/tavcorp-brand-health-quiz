@@ -25,9 +25,8 @@ export default function MultipleChoiceQuestion({ options, value, onChange }: Mul
               {option}
             </span>
             <span
-              className={`material-symbols-outlined transition-all duration-300 ${
-                isSelected ? "text-white opacity-100" : "opacity-0"
-              }`}
+              className={`material-symbols-outlined transition-all duration-300 ${isSelected ? "text-white opacity-100" : "opacity-0"
+                }`}
             >
               check_circle
             </span>

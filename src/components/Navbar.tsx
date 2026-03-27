@@ -1,15 +1,21 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 bg-[#FCF9F8]/80 glass-nav">
       <div className="flex justify-between items-center px-8 py-5 max-w-7xl mx-auto">
         {/* Logo */}
-        <div className="text-xl font-black tracking-tighter text-[#1B1B1B]">
-          TavCorp
-        </div>
+        <Image
+          src="/tavnobg.png"
+          alt="TavCorp"
+          width={160}
+          height={60}
+          className="h-16 w-auto"
+          priority
+        />
 
         {/* Nav Links */}
         <div className="hidden md:flex items-center space-x-8">

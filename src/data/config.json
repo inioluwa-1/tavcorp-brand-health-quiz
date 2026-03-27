@@ -17,6 +17,13 @@
       "Never": 0,
       "Regularly (monthly)": 3,
       "Occasionally (few times a year)": 2
+    },
+    "thresholds": {
+      "A": 90,
+      "B": 80,
+      "C": 70,
+      "D": 60,
+      "F": 0
     }
   },
   "pillars": {
@@ -60,37 +67,37 @@
   "actionPlans": {
     "A": {
       "scoreRange": "90–100%",
-      "headline": "Excellent! Your brand is in a strong position.",
-      "highlight": "Keep refining and look for ways to turn customers into advocates.",
-      "actionPlan": "Congratulations — your brand is operating at an elite level. Consistency, visibility, and customer experience metrics place you firmly in the top tier of your industry. Continue to refine your messaging and customer touchpoints.",
+      "headline": "Your brand is in a",
+      "highlight": "Strong Position.",
+      "actionPlan": "Excellent! Your brand is in a strong position. Keep refining and look for ways to turn customers into advocates.",
       "trustFactor": "Very High"
     },
     "B": {
       "scoreRange": "80–89%",
-      "headline": "You're doing well.",
-      "highlight": "Review the questions where you answered 'Partially' or gave lower ratings.",
-      "actionPlan": "Your brand has strong foundations across most pillars. Review {{weakestPillar}} — those are your quick wins. With focused effort on these areas, you have a clear path into the top tier of brands in your niche.",
+      "headline": "You're doing",
+      "highlight": "Really Well.",
+      "actionPlan": "You're doing well. Review the questions where you answered 'Partially' or gave lower ratings — those are your quick wins.",
       "trustFactor": "High"
     },
     "C": {
       "scoreRange": "70–79%",
-      "headline": "Good foundation, but gaps exist.",
-      "highlight": "Start with one pillar that scored lowest and create a 30‑day improvement plan.",
-      "actionPlan": "Your brand has real potential, but {{weakestPillar}} needs strategic attention. This represents your highest-leverage growth opportunity. A focused 90-day sprint can realistically yield a 20–35% improvement in customer trust scores.",
+      "headline": "Good foundation,",
+      "highlight": "but gaps exist.",
+      "actionPlan": "Good foundation, but gaps exist. Start with one pillar that scored lowest and create a 30-day improvement plan.",
       "trustFactor": "Medium"
     },
     "D": {
       "scoreRange": "60–69%",
-      "headline": "Your brand has several weak spots.",
-      "highlight": "A focused effort on messaging, online presence, and customer service will make a big difference.",
-      "actionPlan": "Several key pillars — particularly {{weakestPillar}} — need strategic attention. The encouraging news: targeted improvements in your weakest areas will produce outsized results. TavCorp recommends a structured 6-month brand health roadmap.",
+      "headline": "Your brand has",
+      "highlight": "several weak spots.",
+      "actionPlan": "Your brand has several weak spots. A focused effort on messaging, online presence, and customer service will make a big difference.",
       "trustFactor": "Low"
     },
     "F": {
       "scoreRange": "Below 60%",
-      "headline": "Your brand is at risk.",
-      "highlight": "TavCorp specializes in helping businesses like yours rebuild reputation and visibility.",
-      "actionPlan": "Your diagnostic reveals significant gaps across multiple brand pillars — but this is actually a powerful position to be in. You have a clean slate and the clarity of knowing exactly what needs to be built. Start by establishing your foundational brand identity: mission, vision, and values.",
+      "headline": "Your brand",
+      "highlight": "is at risk.",
+      "actionPlan": "Your brand is at risk. TavCorp specializes in helping businesses like yours rebuild reputation and visibility — reach out for a free consultation.",
       "trustFactor": "Needs Work"
     }
   }

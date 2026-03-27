@@ -31,11 +31,10 @@ export default function GridQuestion({ value, onChange }: GridQuestionProps) {
               {option.label}
             </span>
             <span
-              className={`material-symbols-outlined transition-all duration-300 ${
-                isSelected
+              className={`material-symbols-outlined transition-all duration-300 ${isSelected
                   ? "opacity-100 text-white"
                   : "opacity-0 group-hover:opacity-100 text-[#845400]"
-              }`}
+                }`}
             >
               {option.icon}
             </span>
