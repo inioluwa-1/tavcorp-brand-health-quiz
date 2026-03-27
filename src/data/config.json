@@ -1,0 +1,97 @@
+{
+  "scoring": {
+    "gridScores": {
+      "Yes": 3,
+      "Partially": 2,
+      "I don't know": 1,
+      "No": 0
+    },
+    "multipleScores": {
+      "Daily": 3,
+      "3–4 times a week": 2.5,
+      "Once a week or less": 1.5,
+      "Rarely / never": 0,
+      "Always (consistently)": 3,
+      "Sometimes": 2,
+      "Rarely": 1,
+      "Never": 0,
+      "Regularly (monthly)": 3,
+      "Occasionally (few times a year)": 2
+    }
+  },
+  "pillars": {
+    "1": {
+      "name": "Brand Messaging & Identity",
+      "immediateFix": "Write a single-sentence mission statement and place it on every platform — website header, social bio, and email signature. Consistency starts with clarity."
+    },
+    "2": {
+      "name": "Visual Identity & Consistency",
+      "immediateFix": "Create a one-page brand style guide with your exact HEX colors, primary font, and logo usage rules. Share it with anyone who creates content for your brand."
+    },
+    "3": {
+      "name": "Website, SEO & Conversion",
+      "immediateFix": "Run a 5-second test on your homepage. If visitors can't identify what you do and why they should care within 5 seconds, rewrite your hero copy today."
+    },
+    "4": {
+      "name": "Social Presence & Engagement",
+      "immediateFix": "Commit to 3 posts per week on your strongest social channel for the next 30 days. Consistency of cadence matters more than production quality at this stage."
+    },
+    "5": {
+      "name": "Customer Experience & Service",
+      "immediateFix": "Set up a free helpdesk tool (Freshdesk or HubSpot) and create a simple SLA: every inquiry gets a response within 24 hours, no exceptions."
+    },
+    "6": {
+      "name": "Product & Service Quality",
+      "immediateFix": "Survey your last 10 customers with one question: 'What's the one thing you love most about us?' Then lead with that answer in your marketing."
+    },
+    "7": {
+      "name": "Reviews & Social Proof",
+      "immediateFix": "Send a personal follow-up email to your 5 most recent happy customers and simply ask for a Google review. 72% of customers will say yes if asked directly."
+    },
+    "8": {
+      "name": "PR & Media Presence",
+      "immediateFix": "Write a 200-word press release about your most newsworthy recent milestone and pitch it to 3 relevant industry blogs or journalists this week."
+    },
+    "9": {
+      "name": "Analytics & Measurement",
+      "immediateFix": "Install Google Analytics 4 and connect it to Google Search Console today. You cannot optimize what you cannot measure."
+    }
+  },
+  "actionPlans": {
+    "A": {
+      "scoreRange": "90–100%",
+      "headline": "Excellent! Your brand is in a strong position.",
+      "highlight": "Keep refining and look for ways to turn customers into advocates.",
+      "actionPlan": "Congratulations — your brand is operating at an elite level. Consistency, visibility, and customer experience metrics place you firmly in the top tier of your industry. Continue to refine your messaging and customer touchpoints.",
+      "trustFactor": "Very High"
+    },
+    "B": {
+      "scoreRange": "80–89%",
+      "headline": "You're doing well.",
+      "highlight": "Review the questions where you answered 'Partially' or gave lower ratings.",
+      "actionPlan": "Your brand has strong foundations across most pillars. Review {{weakestPillar}} — those are your quick wins. With focused effort on these areas, you have a clear path into the top tier of brands in your niche.",
+      "trustFactor": "High"
+    },
+    "C": {
+      "scoreRange": "70–79%",
+      "headline": "Good foundation, but gaps exist.",
+      "highlight": "Start with one pillar that scored lowest and create a 30‑day improvement plan.",
+      "actionPlan": "Your brand has real potential, but {{weakestPillar}} needs strategic attention. This represents your highest-leverage growth opportunity. A focused 90-day sprint can realistically yield a 20–35% improvement in customer trust scores.",
+      "trustFactor": "Medium"
+    },
+    "D": {
+      "scoreRange": "60–69%",
+      "headline": "Your brand has several weak spots.",
+      "highlight": "A focused effort on messaging, online presence, and customer service will make a big difference.",
+      "actionPlan": "Several key pillars — particularly {{weakestPillar}} — need strategic attention. The encouraging news: targeted improvements in your weakest areas will produce outsized results. TavCorp recommends a structured 6-month brand health roadmap.",
+      "trustFactor": "Low"
+    },
+    "F": {
+      "scoreRange": "Below 60%",
+      "headline": "Your brand is at risk.",
+      "highlight": "TavCorp specializes in helping businesses like yours rebuild reputation and visibility.",
+      "actionPlan": "Your diagnostic reveals significant gaps across multiple brand pillars — but this is actually a powerful position to be in. You have a clean slate and the clarity of knowing exactly what needs to be built. Start by establishing your foundational brand identity: mission, vision, and values.",
+      "trustFactor": "Needs Work"
+    }
+  }
+}

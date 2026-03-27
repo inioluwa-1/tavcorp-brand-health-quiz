@@ -1,0 +1,388 @@
+[
+  {
+    "id": 1,
+    "pillarNumber": 1,
+    "pillar": "Brand Messaging & Identity",
+    "format": "grid",
+    "text": "Does your brand have a clear mission statement that everyone in your company knows?",
+    "insight": {
+      "title": "Why This Matters",
+      "body": "Brands with a clearly articulated mission statement outperform competitors by 67% in customer loyalty metrics."
+    }
+  },
+  {
+    "id": 2,
+    "pillarNumber": 1,
+    "pillar": "Brand Messaging & Identity",
+    "format": "slider",
+    "text": "How confident are you that your brand message is the same across your website, social media, and advertising?",
+    "slider": {
+      "minLabel": "Not Confident",
+      "maxLabel": "Extremely Confident",
+      "hint": "Consider all touchpoints: website, social profiles, email campaigns, and paid ads."
+    },
+    "insight": {
+      "title": "Editorial Insight",
+      "body": "Consistent brand messaging can increase revenue by up to 23% by building familiarity and trust with your audience."
+    }
+  },
+  {
+    "id": 3,
+    "pillarNumber": 1,
+    "pillar": "Brand Messaging & Identity",
+    "format": "grid",
+    "text": "Do your customers easily understand what makes your brand different from competitors?",
+    "insight": {
+      "title": "Differentiation Power",
+      "body": "A clearly communicated unique value proposition reduces customer acquisition cost by an average of 35%."
+    }
+  },
+  {
+    "id": 4,
+    "pillarNumber": 2,
+    "pillar": "Visual Identity & Consistency",
+    "format": "grid",
+    "text": "Does your brand use the same logo, colors, and fonts everywhere (website, social, print)?",
+    "insight": {
+      "title": "Visual Consistency",
+      "body": "Brands that maintain visual consistency are 3.5× more likely to enjoy strong brand visibility across markets."
+    }
+  },
+  {
+    "id": 5,
+    "pillarNumber": 2,
+    "pillar": "Visual Identity & Consistency",
+    "format": "slider",
+    "text": "Would a customer recognize your brand just by seeing your color scheme or logo?",
+    "slider": {
+      "minLabel": "Never",
+      "maxLabel": "Definitely"
+    },
+    "insight": {
+      "title": "Brand Recognition",
+      "body": "Color alone increases brand recognition by up to 80% — a critical driver of recall and intent to purchase."
+    }
+  },
+  {
+    "id": 6,
+    "pillarNumber": 2,
+    "pillar": "Visual Identity & Consistency",
+    "format": "slider",
+    "text": "How would you rate the professional quality of your marketing materials (flyers, emails, ads)?",
+    "slider": {
+      "minLabel": "Amateur",
+      "maxLabel": "Top-Tier Professional",
+      "hint": "Think about your brochures, email templates, and ad creatives."
+    },
+    "insight": {
+      "title": "Quality Signal",
+      "body": "75% of consumers judge a brand's credibility by its design quality. Polished materials signal authority."
+    }
+  },
+  {
+    "id": 7,
+    "pillarNumber": 3,
+    "pillar": "Website, SEO & Conversion",
+    "format": "grid",
+    "text": "Do you have a website?",
+    "insight": {
+      "title": "Digital Presence",
+      "body": "81% of consumers research a business online before making a purchase. A website is your most important digital asset."
+    }
+  },
+  {
+    "id": 8,
+    "pillarNumber": 3,
+    "pillar": "Website, SEO & Conversion",
+    "format": "grid",
+    "text": "Does your website load quickly on both mobile and desktop?",
+    "insight": {
+      "title": "Speed Matters",
+      "body": "A 1-second delay in page load time can result in a 7% reduction in conversions and 11% fewer page views."
+    }
+  },
+  {
+    "id": 9,
+    "pillarNumber": 3,
+    "pillar": "Website, SEO & Conversion",
+    "format": "grid",
+    "text": "Can visitors find your contact information or make a purchase within 3 clicks?",
+    "insight": {
+      "title": "UX Efficiency",
+      "body": "The 3-click rule remains a critical usability benchmark — unnecessary friction kills conversions."
+    }
+  },
+  {
+    "id": 10,
+    "pillarNumber": 3,
+    "pillar": "Website, SEO & Conversion",
+    "format": "grid",
+    "text": "Does your website appear on the first page of Google for important keywords related to your business?",
+    "insight": {
+      "title": "SEO Authority",
+      "body": "92% of all search traffic goes to results on page 1. Page 2 is effectively invisible to most users."
+    }
+  },
+  {
+    "id": 11,
+    "pillarNumber": 3,
+    "pillar": "Website, SEO & Conversion",
+    "format": "slider",
+    "text": "On a scale of 0–10, how well does your website explain what you do and persuade visitors to take action?",
+    "slider": {
+      "minLabel": "Not At All",
+      "maxLabel": "Perfectly",
+      "hint": "A great homepage answers \"Who are you?\", \"What do you do?\" and \"Why should I care?\" in seconds."
+    },
+    "insight": {
+      "title": "Conversion Copy",
+      "body": "Clear value propositions on landing pages can improve conversion rates by up to 197%."
+    }
+  },
+  {
+    "id": 12,
+    "pillarNumber": 4,
+    "pillar": "Social Presence & Engagement",
+    "format": "multiple",
+    "text": "How often do you post on social media?",
+    "options": [
+      "Daily",
+      "3–4 times a week",
+      "Once a week or less",
+      "Rarely / never"
+    ],
+    "insight": {
+      "title": "Posting Cadence",
+      "body": "Brands posting consistently (3-5× per week) see 2× the organic reach growth over 6 months versus sporadic posters."
+    }
+  },
+  {
+    "id": 13,
+    "pillarNumber": 4,
+    "pillar": "Social Presence & Engagement",
+    "format": "grid",
+    "text": "Do you respond to comments and messages on social media within 24 hours?",
+    "insight": {
+      "title": "Response Time",
+      "body": "53% of customers expect a social media response within 1 hour. Brands that respond within 24 hours retain 40% more followers."
+    }
+  },
+  {
+    "id": 14,
+    "pillarNumber": 4,
+    "pillar": "Social Presence & Engagement",
+    "format": "slider",
+    "text": "How would you rate the engagement (likes, comments, shares) you get on your social posts?",
+    "slider": {
+      "minLabel": "No Engagement",
+      "maxLabel": "High Engagement"
+    },
+    "insight": {
+      "title": "Engagement Rate",
+      "body": "Average social engagement rates of 1–5% are considered strong for most B2C brands. Above 5% is exceptional."
+    }
+  },
+  {
+    "id": 15,
+    "pillarNumber": 5,
+    "pillar": "Customer Experience & Service",
+    "format": "grid",
+    "text": "Do you have a system to track customer questions and complaints?",
+    "insight": {
+      "title": "Feedback Systems",
+      "body": "Businesses with formal complaint resolution systems retain 70% more customers than those without structured processes."
+    }
+  },
+  {
+    "id": 16,
+    "pillarNumber": 5,
+    "pillar": "Customer Experience & Service",
+    "format": "grid",
+    "text": "Do you typically resolve customer issues within one business day?",
+    "insight": {
+      "title": "Resolution Speed",
+      "body": "Quick issue resolution is the #1 driver of customer satisfaction — more impactful than price or product quality."
+    }
+  },
+  {
+    "id": 17,
+    "pillarNumber": 5,
+    "pillar": "Customer Experience & Service",
+    "format": "slider",
+    "text": "How satisfied are your customers with their overall experience?",
+    "slider": {
+      "minLabel": "Very Unsatisfied",
+      "maxLabel": "Very Satisfied",
+      "hint": "Consider feedback from reviews, surveys, and repeat purchase rates."
+    },
+    "insight": {
+      "title": "CX ROI",
+      "body": "Brands that prioritize CX generate 60% higher profits. Every point of CSAT improvement has measurable revenue impact."
+    }
+  },
+  {
+    "id": 18,
+    "pillarNumber": 6,
+    "pillar": "Product & Service Quality",
+    "format": "grid",
+    "text": "Do you regularly review your products or services to ensure they meet customer expectations?",
+    "insight": {
+      "title": "Quality Loop",
+      "body": "Companies that review offerings quarterly see 28% lower churn and stronger NPS scores over time."
+    }
+  },
+  {
+    "id": 19,
+    "pillarNumber": 6,
+    "pillar": "Product & Service Quality",
+    "format": "grid",
+    "text": "Do you offer a warranty, guarantee, or return policy that builds trust?",
+    "insight": {
+      "title": "Trust Signals",
+      "body": "A clear return or guarantee policy can increase conversion rates by 17-20% by removing purchase risk."
+    }
+  },
+  {
+    "id": 20,
+    "pillarNumber": 6,
+    "pillar": "Product & Service Quality",
+    "format": "multiple",
+    "text": "How often do you update or improve your offerings based on customer feedback?",
+    "options": [
+      "Always (consistently)",
+      "Sometimes",
+      "Rarely",
+      "Never"
+    ],
+    "insight": {
+      "title": "Iteration Velocity",
+      "body": "Product teams that iterate based on customer feedback release improvements 3× faster with higher adoption rates."
+    }
+  },
+  {
+    "id": 21,
+    "pillarNumber": 7,
+    "pillar": "Reviews & Social Proof",
+    "format": "grid",
+    "text": "Do you actively ask happy customers to leave a review on Google, Yelp, or Facebook?",
+    "insight": {
+      "title": "Review Generation",
+      "body": "72% of consumers will leave a review if simply asked. Yet only 30% of businesses have a consistent ask strategy."
+    }
+  },
+  {
+    "id": 22,
+    "pillarNumber": 7,
+    "pillar": "Reviews & Social Proof",
+    "format": "grid",
+    "text": "Do you display customer testimonials on your website or marketing materials?",
+    "insight": {
+      "title": "Social Proof Power",
+      "body": "Testimonials on landing pages can increase conversion rates by up to 34%. Trust is the new currency."
+    }
+  },
+  {
+    "id": 23,
+    "pillarNumber": 7,
+    "pillar": "Reviews & Social Proof",
+    "format": "grid",
+    "text": "Do you respond to both positive and negative reviews in a professional way?",
+    "insight": {
+      "title": "Review Response",
+      "body": "Brands that respond to negative reviews see a 16% improvement in customer advocacy over time."
+    }
+  },
+  {
+    "id": 24,
+    "pillarNumber": 7,
+    "pillar": "Reviews & Social Proof",
+    "format": "slider",
+    "text": "What is your average star rating on Google or other major review sites?",
+    "slider": {
+      "minLabel": "No reviews / Very low",
+      "maxLabel": "5 Stars consistently",
+      "hint": "Consider your overall score across Google, Yelp, Trustpilot, and other platforms."
+    },
+    "insight": {
+      "title": "Rating Impact",
+      "body": "Moving from a 3-star to a 4-star average can increase click-through rate from search results by up to 25%."
+    }
+  },
+  {
+    "id": 25,
+    "pillarNumber": 8,
+    "pillar": "PR & Media Presence",
+    "format": "grid",
+    "text": "Has your brand been mentioned in any news articles, podcasts, or blogs in the past year?",
+    "insight": {
+      "title": "Earned Media",
+      "body": "Earned media coverage generates 92% more trust than paid advertising — it's the highest-value brand signal."
+    }
+  },
+  {
+    "id": 26,
+    "pillarNumber": 8,
+    "pillar": "PR & Media Presence",
+    "format": "grid",
+    "text": "Do you have a press kit or media page on your website?",
+    "insight": {
+      "title": "Media Readiness",
+      "body": "Brands with a media kit are 3× more likely to be featured by journalists who discover them online."
+    }
+  },
+  {
+    "id": 27,
+    "pillarNumber": 8,
+    "pillar": "PR & Media Presence",
+    "format": "multiple",
+    "text": "How often do you actively pitch stories or send press releases to journalists?",
+    "options": [
+      "Regularly (monthly)",
+      "Occasionally (few times a year)",
+      "Rarely",
+      "Never"
+    ],
+    "insight": {
+      "title": "Proactive PR",
+      "body": "Brands that pitch consistently see 4× more media coverage than those who pitch only occasionally."
+    }
+  },
+  {
+    "id": 28,
+    "pillarNumber": 9,
+    "pillar": "Analytics & Measurement",
+    "format": "grid",
+    "text": "Do you use Google Analytics or a similar tool to track website visitors?",
+    "insight": {
+      "title": "Data Foundation",
+      "body": "You cannot optimize what you don't measure. Analytics tools are the bedrock of all growth-oriented marketing."
+    }
+  },
+  {
+    "id": 29,
+    "pillarNumber": 9,
+    "pillar": "Analytics & Measurement",
+    "format": "grid",
+    "text": "Do you know your conversion rate (e.g., how many website visitors become customers)?",
+    "insight": {
+      "title": "Conversion Awareness",
+      "body": "The average website conversion rate is 2–3%. Brands that track this actively achieve rates 2× the industry average."
+    }
+  },
+  {
+    "id": 30,
+    "pillarNumber": 9,
+    "pillar": "Analytics & Measurement",
+    "format": "slider",
+    "text": "How well do you track which marketing channels bring you the most customers?",
+    "slider": {
+      "minLabel": "Not tracked at all",
+      "maxLabel": "Fully tracked & optimized",
+      "hint": "Consider attribution across email, social, SEO, paid ads, and referrals."
+    },
+    "insight": {
+      "title": "Attribution Mastery",
+      "body": "Brands with full attribution visibility reallocate 23% of budget to higher-performing channels, compounding ROI annually."
+    }
+  }
+]
