@@ -37,19 +37,19 @@ export default function Navbar() {
         {/* Desktop Nav Links */}
         <div className="hidden md:flex items-center space-x-8">
           <Link
-            href="#"
+            href="/solutions"
             className="text-[#1B1B1B]/60 font-medium transition-colors duration-300 hover:text-[#DF9931]"
           >
             Solutions
           </Link>
           <Link
-            href="#"
+            href="/methodology"
             className="text-[#1B1B1B]/60 font-medium transition-colors duration-300 hover:text-[#DF9931]"
           >
             Methodology
           </Link>
           <Link
-            href="#"
+            href="/case-studies"
             className="text-[#1B1B1B]/60 font-medium transition-colors duration-300 hover:text-[#DF9931]"
           >
             Case Studies
@@ -81,21 +81,21 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-[#fcf9f8] border-t border-[#d6c3b0]/30 shadow-xl flex flex-col items-center py-6 space-y-6">
           <Link
-            href="#"
+            href="/solutions"
             className="text-[#1B1B1B] font-bold text-lg hover:text-[#DF9931] transition-colors"
             onClick={() => setIsOpen(false)}
           >
             Solutions
           </Link>
           <Link
-            href="#"
+            href="/methodology"
             className="text-[#1B1B1B] font-bold text-lg hover:text-[#DF9931] transition-colors"
             onClick={() => setIsOpen(false)}
           >
             Methodology
           </Link>
           <Link
-            href="#"
+            href="/case-studies"
             className="text-[#1B1B1B] font-bold text-lg hover:text-[#DF9931] transition-colors"
             onClick={() => setIsOpen(false)}
           >

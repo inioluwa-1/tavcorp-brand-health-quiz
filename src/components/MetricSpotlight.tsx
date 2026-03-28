@@ -1,12 +1,12 @@
 export default function MetricSpotlight() {
   return (
     <section className="mt-40 mb-20 max-w-4xl mx-auto px-8 text-center">
-      <h2 className="text-xs font-bold text-[#845400] tracking-[0.2em] mb-12 uppercase">
+      <h2 data-aos="fade-in" className="text-xs font-bold text-[#845400] tracking-[0.2em] mb-12 uppercase">
         Metric Spotlight
       </h2>
 
       {/* Confidence Dial */}
-      <div className="relative inline-block">
+      <div data-aos="zoom-in" data-aos-delay="100" className="relative inline-block">
         <svg className="w-64 h-32" viewBox="0 0 100 50">
           {/* Track */}
           <path
@@ -40,11 +40,11 @@ export default function MetricSpotlight() {
       </div>
 
       {/* Testimonial */}
-      <p className="mt-8 text-[#5f5e5e] font-medium italic">
+      <p data-aos="fade-up" data-aos-delay="300" className="mt-8 text-[#5f5e5e] font-medium italic">
         &ldquo;TavCorp identified gaps in our editorial voice we didn&apos;t
         even know existed.&rdquo;
       </p>
-      <p className="text-sm font-bold mt-2 text-[#1B1B1B]">
+      <p data-aos="fade-up" data-aos-delay="400" className="text-sm font-bold mt-2 text-[#1B1B1B]">
         — CMO, Enterprise Growth
       </p>
     </section>

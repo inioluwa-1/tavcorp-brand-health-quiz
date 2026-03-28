@@ -20,25 +20,25 @@ export default function Hero() {
   return (
     <section className="max-w-7xl mx-auto px-8 flex flex-col items-center text-center">
       {/* Badge */}
-      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f6f3f2] text-[#845400] text-[10px] uppercase tracking-[0.1em] font-bold mb-8">
+      <div data-aos="fade-down" className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f6f3f2] text-[#845400] text-[10px] uppercase tracking-[0.1em] font-bold mb-8">
         <span className="w-1.5 h-1.5 rounded-full bg-[#845400] animate-pulse" />
         Intelligence Diagnostics v2.4
       </div>
 
       {/* Headline */}
-      <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-[#1B1B1B] max-w-4xl mb-8 leading-[0.95]">
+      <h1 data-aos="fade-up" data-aos-delay="100" className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-[#1B1B1B] max-w-4xl mb-8 leading-[0.95]">
         How Healthy Is <br />
         <span className="text-[#DF9931]">Your Brand?</span>
       </h1>
 
       {/* Subheading */}
-      <p className="text-lg md:text-xl text-[#5f5e5e] max-w-2xl leading-relaxed mb-12">
+      <p data-aos="fade-up" data-aos-delay="200" className="text-lg md:text-xl text-[#5f5e5e] max-w-2xl leading-relaxed mb-12">
         Assess your brand across 9 key pillars with our expert diagnostic tool.
         Gain proprietary insights into your market authority and resonance.
       </p>
 
       {/* CTA Row */}
-      <div className="flex flex-col sm:flex-row gap-4 items-center mb-24">
+      <div data-aos="fade-up" data-aos-delay="300" className="flex flex-col sm:flex-row gap-4 items-center mb-24">
         <Link
           href="/quiz"
           id="hero-start-quiz"
@@ -76,7 +76,7 @@ export default function Hero() {
       {/* Bento Grid */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 w-full text-left">
         {/* Main Card */}
-        <div className="md:col-span-8 bg-white rounded-2xl p-10 flex flex-col justify-between group cursor-default shadow-sm">
+        <div data-aos="fade-up" data-aos-delay="400" className="md:col-span-8 bg-white rounded-2xl p-10 flex flex-col justify-between group cursor-default shadow-sm">
           <div>
             <div className="w-14 h-14 rounded-2xl bg-[#f6f3f2] flex items-center justify-center mb-8">
               <span className="material-symbols-outlined text-[#845400] text-3xl">
@@ -105,7 +105,7 @@ export default function Hero() {
         {/* Side Cards */}
         <div className="md:col-span-4 flex flex-col gap-6">
           {/* Card 1 */}
-          <div className="bg-[#f6f3f2] rounded-2xl p-8 flex-1 border border-[#d6c3b0]/10">
+          <div data-aos="fade-left" data-aos-delay="600" className="bg-[#f6f3f2] rounded-2xl p-8 flex-1 border border-[#d6c3b0]/10">
             <span className="material-symbols-outlined text-[#DF9931] mb-4 text-3xl block">
               verified
             </span>
@@ -116,7 +116,7 @@ export default function Hero() {
           </div>
 
           {/* Card 2 */}
-          <div className="bg-[#313030] rounded-2xl p-8 flex-1 text-[#fcf9f8]">
+          <div data-aos="fade-left" data-aos-delay="700" className="bg-[#313030] rounded-2xl p-8 flex-1 text-[#fcf9f8]">
             <span className="material-symbols-outlined text-[#DF9931] mb-4 text-3xl block">
               electric_bolt
             </span>
