@@ -23,7 +23,7 @@ export default function Navbar() {
     <nav className="fixed top-0 w-full z-50 bg-[#FCF9F8]/80 glass-nav shadow-sm">
       <div className="flex justify-between items-center px-4 sm:px-8 py-4 sm:py-5 max-w-7xl mx-auto">
         {/* Logo */}
-        <Link href="/">
+        <Link href="/" data-aos="fade-down">
           <Image
             src="/tavnobg.png"
             alt="TavCorp"
@@ -38,18 +38,21 @@ export default function Navbar() {
         <div className="hidden md:flex items-center space-x-8">
           <Link
             href="/solutions"
+            data-aos="fade-down" data-aos-delay="100"
             className="text-[#1B1B1B]/60 font-medium transition-colors duration-300 hover:text-[#DF9931]"
           >
             Solutions
           </Link>
           <Link
             href="/methodology"
+            data-aos="fade-down" data-aos-delay="150"
             className="text-[#1B1B1B]/60 font-medium transition-colors duration-300 hover:text-[#DF9931]"
           >
             Methodology
           </Link>
           <Link
             href="/case-studies"
+            data-aos="fade-down" data-aos-delay="200"
             className="text-[#1B1B1B]/60 font-medium transition-colors duration-300 hover:text-[#DF9931]"
           >
             Case Studies
@@ -60,6 +63,7 @@ export default function Navbar() {
         <button
           id="nav-start-audit-desktop"
           onClick={() => window.location.href = "/quiz"}
+          data-aos="fade-down" data-aos-delay="250"
           className="hidden md:block bg-[#DF9931] text-[#563500] px-6 py-2.5 rounded-full font-semibold text-sm hover:scale-[0.98] transition-all duration-200 cursor-pointer"
         >
           Start Audit
@@ -70,6 +74,7 @@ export default function Navbar() {
           className="md:hidden text-[#1B1B1B] p-2 focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
+          data-aos="fade-down" data-aos-delay="100"
         >
           <span className="material-symbols-outlined text-3xl">
             {isOpen ? "close" : "menu"}

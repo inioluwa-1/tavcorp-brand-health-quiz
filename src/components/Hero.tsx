@@ -103,9 +103,9 @@ export default function Hero() {
         </div>
 
         {/* Side Cards */}
-        <div className="md:col-span-4 flex flex-col gap-6">
+        <div className="md:col-span-4 flex flex-col gap-6 overflow-hidden">
           {/* Card 1 */}
-          <div data-aos="fade-left" data-aos-delay="600" className="bg-[#f6f3f2] rounded-2xl p-8 flex-1 border border-[#d6c3b0]/10">
+          <div data-aos="fade-up" data-aos-delay="600" className="bg-[#f6f3f2] rounded-2xl p-8 flex-1 border border-[#d6c3b0]/10">
             <span className="material-symbols-outlined text-[#DF9931] mb-4 text-3xl block">
               verified
             </span>
@@ -116,7 +116,7 @@ export default function Hero() {
           </div>
 
           {/* Card 2 */}
-          <div data-aos="fade-left" data-aos-delay="700" className="bg-[#313030] rounded-2xl p-8 flex-1 text-[#fcf9f8]">
+          <div data-aos="fade-up" data-aos-delay="700" className="bg-[#313030] rounded-2xl p-8 flex-1 text-[#fcf9f8]">
             <span className="material-symbols-outlined text-[#DF9931] mb-4 text-3xl block">
               electric_bolt
             </span>

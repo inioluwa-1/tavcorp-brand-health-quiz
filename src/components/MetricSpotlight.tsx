@@ -6,8 +6,9 @@ export default function MetricSpotlight() {
       </h2>
 
       {/* Confidence Dial */}
-      <div data-aos="zoom-in" data-aos-delay="100" className="relative inline-block">
-        <svg className="w-64 h-32" viewBox="0 0 100 50">
+      <div data-aos="zoom-in" data-aos-delay="100" className="relative inline-block mt-4">
+        {/* Adjusted viewBox to prevent stroke-linecap cutoff */}
+        <svg className="w-64 h-36" viewBox="0 0 100 60">
           {/* Track */}
           <path
             className="text-[#e5e2e1]"
@@ -15,21 +16,22 @@ export default function MetricSpotlight() {
             fill="none"
             stroke="currentColor"
             strokeWidth="8"
+            strokeLinecap="round"
           />
-          {/* Progress */}
+          {/* Progress (84% score) */}
           <path
             className="text-[#DF9931]"
-            d="M 10 50 A 40 40 0 0 1 70 20"
+            d="M 10 50 A 40 40 0 0 1 90 50"
             fill="none"
             stroke="currentColor"
-            strokeDasharray="125.6"
             strokeWidth="8"
             strokeLinecap="round"
+            strokeDasharray={`${125.66 * 0.84} 125.66`}
           />
         </svg>
 
         {/* Score */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
           <span className="text-5xl font-black tracking-tighter text-[#1B1B1B]">
             84
           </span>
