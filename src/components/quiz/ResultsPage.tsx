@@ -108,7 +108,7 @@ export default function ResultsPage({ answers, lead }: ResultsPageProps) {
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-4 items-center pt-2">
             <a
-              href="#"
+              href="mailto:marketing@wearetavcorp.com?subject=Requesting%20a%20Brand%20Health%20Consultation"
               id="results-cta-consultation"
               className="w-full sm:w-auto px-10 py-5 bg-gradient-to-br from-[#845400] to-[#df9931] text-white font-bold rounded-full shadow-lg shadow-[#df9931]/20 hover:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2"
             >
