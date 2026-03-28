@@ -118,7 +118,7 @@ export default function QuizPage() {
             </span>
 
             {/* Question text */}
-            <h1 className="text-3xl md:text-5xl font-bold text-center text-[#1b1b1b] leading-tight mb-16 max-w-3xl tracking-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-center text-[#1b1b1b] leading-tight mb-10 md:mb-16 max-w-3xl tracking-tight px-2">
               {question.text}
             </h1>
 

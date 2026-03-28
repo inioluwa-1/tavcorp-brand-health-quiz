@@ -21,13 +21,13 @@ export default function GridQuestion({ value, onChange }: GridQuestionProps) {
           <button
             key={option.label}
             onClick={() => onChange(option.label)}
-            className={`group relative flex items-center justify-between p-8 rounded-xl transition-all duration-300 border cursor-pointer
+            className={`group relative flex items-center justify-between p-6 sm:p-8 rounded-xl transition-all duration-300 border cursor-pointer
               ${isSelected
                 ? "bg-[#845400] border-[#845400] scale-[0.99]"
                 : "bg-[#f6f3f2] border-transparent hover:bg-white hover:border-[#845400]/20 active:scale-[0.98]"
               }`}
           >
-            <span className={`text-xl font-semibold ${isSelected ? "text-white" : "text-[#1b1b1b]"}`}>
+            <span className={`text-lg sm:text-xl font-semibold ${isSelected ? "text-white" : "text-[#1b1b1b]"}`}>
               {option.label}
             </span>
             <span

@@ -15,13 +15,13 @@ export default function MultipleChoiceQuestion({ options, value, onChange }: Mul
           <button
             key={option}
             onClick={() => onChange(option)}
-            className={`flex items-center justify-between p-6 rounded-xl transition-all duration-300 border text-left cursor-pointer
+            className={`flex items-center justify-between p-5 sm:p-6 rounded-xl transition-all duration-300 border text-left cursor-pointer
               ${isSelected
                 ? "bg-[#845400] border-[#845400] scale-[0.99]"
                 : "bg-[#f6f3f2] border-transparent hover:bg-white hover:border-[#845400]/20 active:scale-[0.98]"
               }`}
           >
-            <span className={`text-lg font-semibold ${isSelected ? "text-white" : "text-[#1b1b1b]"}`}>
+            <span className={`text-base sm:text-lg font-semibold ${isSelected ? "text-white" : "text-[#1b1b1b]"}`}>
               {option}
             </span>
             <span
