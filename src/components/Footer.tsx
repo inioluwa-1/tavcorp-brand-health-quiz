@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = [
   { label: "Privacy Policy", href: "#" },
@@ -12,7 +13,15 @@ export default function Footer() {
     <footer className="bg-[#1B1B1B] w-full py-12 px-8">
       <div className="flex flex-col md:flex-row justify-between items-center gap-8 max-w-7xl mx-auto">
         {/* Brand */}
-        <div className="text-lg font-black text-[#FCF9F8]">TavCorp</div>
+        <Link href="/" className="hover:opacity-80 transition-opacity duration-300">
+          <Image
+            src="/tav.jpg"
+            alt="TavCorp"
+            width={120}
+            height={40}
+            className="h-10 w-auto rounded border border-[#fcf9f8]/10" 
+          />
+        </Link>
 
         {/* Links */}
         <div className="flex flex-wrap justify-center gap-8">

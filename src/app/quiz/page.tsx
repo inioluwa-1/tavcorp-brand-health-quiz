@@ -93,10 +93,10 @@ export default function QuizPage() {
 
   // ── Quiz questions stage ─────────────────────────────────────────────
   return (
-    <>
+    <div className="w-full max-w-[100vw] overflow-x-hidden">
       <Navbar />
 
-      <main className="min-h-screen pt-32 pb-24 px-6 md:px-12 max-w-5xl mx-auto flex flex-col items-center">
+      <main className="min-h-screen pt-32 pb-24 px-4 sm:px-6 md:px-12 max-w-5xl mx-auto flex flex-col items-center">
         {/* Progress */}
         <QuizProgress
           current={currentIndex + 1}
@@ -107,9 +107,9 @@ export default function QuizPage() {
         {/* Question card — key re-mounts it for slide-in animation */}
         <div
           key={animKey}
-          className="question-animate w-full bg-[#f6f3f2] rounded-2xl p-8 md:p-16 relative overflow-hidden"
+          className="question-animate w-full bg-[#f6f3f2] rounded-2xl p-6 sm:p-8 md:p-16 relative overflow-hidden"
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#845400]/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl pointer-events-none" />
+          <div className="hidden sm:block absolute top-0 right-0 w-64 h-64 bg-[#845400]/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl pointer-events-none" />
 
           <div className="relative z-10 flex flex-col items-center">
             {/* Pillar tag */}
@@ -148,11 +148,11 @@ export default function QuizPage() {
         </div>
 
         {/* Navigation */}
-        <div className="w-full mt-10 flex justify-between items-center">
+        <div className="w-full mt-10 flex flex-col-reverse sm:flex-row justify-between items-center gap-4 sm:gap-0">
           <button
             onClick={() => navigate("prev")}
             disabled={currentIndex === 0}
-            className="flex items-center gap-2 text-[#514536]/60 hover:text-[#845400] disabled:opacity-30 disabled:cursor-not-allowed transition-colors py-3 px-5 rounded-full hover:bg-[#f6f3f2] font-medium cursor-pointer"
+            className="flex items-center justify-center w-full sm:w-auto gap-2 text-[#514536]/60 hover:text-[#845400] disabled:opacity-30 disabled:cursor-not-allowed transition-colors py-4 px-5 rounded-full hover:bg-[#f6f3f2] font-medium cursor-pointer"
           >
             <span className="material-symbols-outlined">arrow_back</span>
             <span className="text-sm font-bold uppercase tracking-widest">
@@ -163,7 +163,7 @@ export default function QuizPage() {
           <button
             onClick={() => navigate("next")}
             disabled={!canProceed}
-            className="group flex items-center gap-4 bg-[#845400] text-white pl-8 pr-4 py-4 rounded-full shadow-lg hover:scale-[0.98] hover:shadow-xl transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 cursor-pointer"
+            className="group flex items-center justify-center w-full sm:w-auto gap-4 bg-[#845400] text-white pl-8 pr-4 py-4 rounded-full shadow-lg hover:scale-[0.98] hover:shadow-xl transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 cursor-pointer"
           >
             <span className="text-sm font-bold uppercase tracking-widest">
               {isLast ? "Finish Quiz" : "Next Question"}
@@ -181,6 +181,6 @@ export default function QuizPage() {
       {question.insight && <QuizInsightPanel insight={question.insight} />}
 
       <Footer />
-    </>
+    </div>
   );
 }
