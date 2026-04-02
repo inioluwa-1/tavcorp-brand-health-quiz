@@ -6,9 +6,10 @@ interface SliderQuestionProps {
   config: SliderConfig;
   value: number;
   onChange: (value: number) => void;
+  onRelease?: () => void;
 }
 
-export default function SliderQuestion({ config, value, onChange }: SliderQuestionProps) {
+export default function SliderQuestion({ config, value, onChange, onRelease }: SliderQuestionProps) {
   const fillPercent = (value / 10) * 100;
 
   return (
@@ -30,6 +31,8 @@ export default function SliderQuestion({ config, value, onChange }: SliderQuesti
           step={1}
           value={value}
           onChange={(e) => onChange(Number(e.target.value))}
+          onMouseUp={onRelease}
+          onTouchEnd={onRelease}
           className="slider-input w-full mb-6"
           style={
             { "--slider-fill": `${fillPercent}%` } as React.CSSProperties

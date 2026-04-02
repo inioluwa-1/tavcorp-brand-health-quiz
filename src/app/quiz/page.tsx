@@ -42,6 +42,19 @@ export default function QuizPage() {
 
   const handleAnswer = (ans: Answer) => {
     setAnswers((prev) => ({ ...prev, [question.id]: ans }));
+
+    // Auto-advance for non-slider questions after a short delay
+    if (question.format !== "slider") {
+      setTimeout(() => {
+        navigate("next");
+      }, 300);
+    }
+  };
+
+  const handleSliderRelease = () => {
+    setTimeout(() => {
+      navigate("next");
+    }, 300);
   };
 
   const navigate = (dir: "next" | "prev") => {
@@ -134,6 +147,7 @@ export default function QuizPage() {
                 config={question.slider!}
                 value={(answers[question.id] as number) ?? 5}
                 onChange={handleAnswer}
+                onRelease={handleSliderRelease}
               />
             )}
 
@@ -148,7 +162,7 @@ export default function QuizPage() {
         </div>
 
         {/* Navigation */}
-        <div className="w-full mt-10 flex flex-col-reverse sm:flex-row justify-between items-center gap-4 sm:gap-0">
+        <div className="w-full mt-10 flex flex-col-reverse sm:flex-row justify-start items-center gap-4 sm:gap-0">
           <button
             onClick={() => navigate("prev")}
             disabled={currentIndex === 0}
@@ -158,21 +172,6 @@ export default function QuizPage() {
             <span className="text-sm font-bold uppercase tracking-widest">
               Previous
             </span>
-          </button>
-
-          <button
-            onClick={() => navigate("next")}
-            disabled={!canProceed}
-            className="group flex items-center justify-center w-full sm:w-auto gap-4 bg-[#845400] text-white pl-8 pr-4 py-4 rounded-full shadow-lg hover:scale-[0.98] hover:shadow-xl transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 cursor-pointer"
-          >
-            <span className="text-sm font-bold uppercase tracking-widest">
-              {isLast ? "Finish Quiz" : "Next Question"}
-            </span>
-            <div className="bg-[#df9931] text-white h-10 w-10 rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform">
-              <span className="material-symbols-outlined">
-                {isLast ? "check" : "arrow_forward"}
-              </span>
-            </div>
           </button>
         </div>
       </main>
