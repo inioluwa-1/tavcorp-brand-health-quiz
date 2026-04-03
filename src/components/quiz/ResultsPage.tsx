@@ -4,6 +4,7 @@ import { useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { calculateResults, getGrade, getResultsContent } from "@/utils/scoring";
 import configData from "@/data/config.json";
+import { jsPDF } from "jspdf";
 
 type Answer = string | number;
 
@@ -28,6 +29,8 @@ const growthAvatars = [
 ];
 
 export default function ResultsPage({ answers, lead }: ResultsPageProps) {
+  const [isDownloading, setIsDownloading] = useState(false);
+
   const { overallScore, pillarAverages } = useMemo(
     () => calculateResults(answers),
     [answers]
@@ -39,6 +42,184 @@ export default function ResultsPage({ answers, lead }: ResultsPageProps) {
     () => getResultsContent(overallScore, pillarAverages),
     [overallScore, pillarAverages]
   );
+
+  const handleGeneratePDF = () => {
+    setIsDownloading(true);
+    try {
+      const doc = new jsPDF();
+      const pageWidth = doc.internal.pageSize.getWidth();
+      const pageHeight = doc.internal.pageSize.getHeight();
+      let currentY = 15;
+
+      // Project colors
+      const colors = {
+        primary: [132, 84, 0] as const, // #845400
+        gold: [223, 153, 49] as const, // #df9931
+        text: [27, 27, 27] as const, // #1b1b1b
+        textSecondary: [95, 94, 94] as const, // #5f5e5e
+        lightBg: [245, 237, 230] as const, // #f6f3f2 (adjusted)
+        white: [255, 255, 255] as const,
+      };
+
+      // --- HEADER SECTION ---
+      doc.setFillColor(...colors.primary);
+      doc.rect(0, 0, pageWidth, 50, "F");
+
+      doc.setTextColor(...colors.white);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(20);
+      doc.text("BRAND HEALTH REPORT", 20, 20);
+
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "normal");
+      doc.text(`${lead.name} • ${lead.email} • ${new Date().toLocaleDateString("en-US")}`, 20, 33);
+
+      // Score display on right
+      doc.setFontSize(32);
+      doc.setFont("helvetica", "bold");
+      doc.setTextColor(...colors.gold);
+      doc.text(`${overallScore}%`, pageWidth - 30, 28);
+
+      doc.setFontSize(14);
+      doc.setTextColor(...colors.white);
+      doc.text(`Grade: ${grade}`, pageWidth - 30, 38, { align: "right" });
+
+      currentY = 60;
+
+      // --- EXECUTIVE SUMMARY (condensed) ---
+      doc.setFillColor(...colors.lightBg);
+      doc.rect(0, currentY - 5, pageWidth, 12, "F");
+      doc.setTextColor(...colors.primary);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(11);
+      doc.text("Executive Summary", 20, currentY + 3);
+
+      currentY += 15;
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(9);
+      doc.setTextColor(...colors.text);
+      const summary = doc.splitTextToSize(content.actionPlan, pageWidth - 40);
+      const summaryLines = summary.slice(0, 2); // Only first 2 lines
+      doc.text(summaryLines, 20, currentY);
+      currentY += summaryLines.length * 5 + 12;
+
+      // --- TOP 3 PRIORITIES (inline) ---
+      doc.setFillColor(...colors.lightBg);
+      doc.rect(0, currentY - 5, pageWidth, 12, "F");
+      doc.setTextColor(...colors.primary);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(11);
+      doc.text("Top 3 Priority Areas", 20, currentY + 3);
+
+      currentY += 14;
+
+      const topThree = Object.entries(pillarAverages)
+        .sort(([, a], [, b]) => a - b)
+        .slice(0, 3);
+
+      topThree.forEach(([pillarKey, score], idx) => {
+        const pillarName = (configData.pillars as Record<string, any>)[pillarKey]?.name || "Unknown";
+        const scoreNum = Math.round(score);
+
+        // Compact card
+        doc.setFillColor(...colors.white);
+        doc.setDrawColor(...colors.gold);
+        doc.setLineWidth(1);
+        doc.rect(20, currentY, pageWidth - 40, 11, "FD");
+
+        // Number badge
+        doc.setFillColor(...colors.gold);
+        doc.circle(25, currentY + 5.5, 2.5, "F");
+        doc.setTextColor(...colors.white);
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(8);
+        doc.text(`${idx + 1}`, 25, currentY + 6.5);
+
+        // Name and score
+        doc.setTextColor(...colors.text);
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(9);
+        doc.text(pillarName, 33, currentY + 6.5);
+
+        doc.setTextColor(...colors.gold);
+        doc.text(`${scoreNum}%`, pageWidth - 25, currentY + 6.5, { align: "right" });
+
+        currentY += 13;
+      });
+
+      currentY += 10;
+
+      // --- ALL PILLARS (condensed table) ---
+      doc.setFillColor(...colors.lightBg);
+      doc.rect(0, currentY - 5, pageWidth, 12, "F");
+      doc.setTextColor(...colors.primary);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(11);
+      doc.text("All Pillar Scores", 20, currentY + 3);
+
+      currentY += 13;
+
+      const sortedPillars = Object.entries(pillarAverages).sort(([keyA], [keyB]) => Number(keyA) - Number(keyB));
+
+      sortedPillars.forEach(([pillarKey, score]) => {
+        const pillarName = (configData.pillars as Record<string, any>)[pillarKey]?.name || "Unknown";
+        const scoreNum = Math.round(score);
+        const confidence = (3 + (score / 100) * 2).toFixed(1);
+
+        doc.setTextColor(...colors.text);
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(8);
+        
+        // Abbreviated pillar name
+        const shortName = pillarName.length > 25 ? pillarName.substring(0, 25) + "..." : pillarName;
+        doc.text(shortName, 20, currentY);
+
+        // Mini progress bar
+        const barWidth = 40;
+        doc.setFillColor(230, 230, 230);
+        doc.rect(95, currentY - 2, barWidth, 4, "F");
+        doc.setFillColor(...colors.gold);
+        doc.rect(95, currentY - 2, (barWidth * scoreNum) / 100, 4, "F");
+
+        // Score and confidence
+        doc.setTextColor(...colors.gold);
+        doc.setFont("helvetica", "bold");
+        doc.text(`${scoreNum}%`, 140, currentY);
+
+        doc.setTextColor(...colors.textSecondary);
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(7);
+        doc.text(`${confidence}/5`, pageWidth - 25, currentY);
+
+        currentY += 6;
+      });
+
+      currentY += 10;
+
+      // --- FOOTER CTA ---
+      doc.setFillColor(...colors.primary);
+      doc.rect(0, currentY, pageWidth, pageHeight - currentY, "F");
+      doc.setTextColor(...colors.white);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(14);
+      doc.text("Ready to Transform Your Brand?", pageWidth / 2, currentY + 15, { align: "center" });
+
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(10);
+      doc.text("Book a free consultation with our brand experts", pageWidth / 2, currentY + 27, { align: "center" });
+
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(11);
+      doc.text("wearetavcorp.com", pageWidth / 2, currentY + 38, { align: "center" });
+
+      doc.save(`${lead.name.replace(/\s+/g, "_")}_Brand_Health_Report.pdf`);
+    } catch (error) {
+      console.error("Error generating PDF:", error);
+      alert("Failed to generate PDF. Please try again.");
+    } finally {
+      setIsDownloading(false);
+    }
+  };
 
   return (
     <main className="pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
@@ -118,6 +299,27 @@ export default function ResultsPage({ answers, lead }: ResultsPageProps) {
                 arrow_forward
               </span>
             </a>
+            <button
+              onClick={handleGeneratePDF}
+              disabled={isDownloading}
+              className="w-full sm:w-auto px-10 py-5 bg-[#eae7e7]/70 text-[#514536] font-semibold rounded-full hover:bg-[#eae7e7] transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-wait flex items-center justify-center gap-2"
+            >
+              {isDownloading ? (
+                <>
+                  <span className="material-symbols-outlined animate-spin text-xl">
+                    progress_activity
+                  </span>
+                  Generating...
+                </>
+              ) : (
+                <>
+                  <span className="material-symbols-outlined text-xl">
+                    download
+                  </span>
+                  Download Full Report (PDF)
+                </>
+              )}
+            </button>
           </div>
         </div>
       </div>
@@ -270,7 +472,7 @@ export default function ResultsPage({ answers, lead }: ResultsPageProps) {
                     className="bg-white p-6 rounded-2xl border border-[#d6c3b0]/10 shadow-sm flex items-center justify-between group hover:border-[#df9931]/30 transition-all duration-300"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full bg-[#df9931]/10 flex items-center justify-center text-[#df9931] font-black text-sm">
+                      <div className="w-10 h-10 rounded-full bg-[#df9931]/10 flex items-center justify-center text-[#df9931] font-black text-sm leading-none">
                         #{idx + 1}
                       </div>
                       <span className="text-lg font-bold text-[#1b1b1b]">
