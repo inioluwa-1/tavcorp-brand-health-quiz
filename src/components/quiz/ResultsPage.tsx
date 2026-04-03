@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { calculateResults, getGrade, getResultsContent } from "@/utils/scoring";
+import configData from "@/data/config.json";
 
 type Answer = string | number;
 
@@ -117,12 +118,6 @@ export default function ResultsPage({ answers, lead }: ResultsPageProps) {
                 arrow_forward
               </span>
             </a>
-            <button
-              id="results-download-pdf"
-              className="w-full sm:w-auto px-10 py-5 bg-[#eae7e7]/70 text-[#514536] font-semibold rounded-full hover:bg-[#eae7e7] transition-all duration-300 cursor-pointer"
-            >
-              Download Full Report (PDF)
-            </button>
           </div>
         </div>
       </div>
@@ -248,6 +243,182 @@ export default function ResultsPage({ answers, lead }: ResultsPageProps) {
             <span className="material-symbols-outlined text-white text-4xl">
               edit_note
             </span>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Top 3 Priority Areas ───────────────────────────────────────────── */}
+      <div className="mb-24 mt-32 space-y-16 scroll-mt-20">
+        <div>
+          <div className="mb-8">
+            <h2 className="text-3xl font-black tracking-tighter text-[#1b1b1b]">
+              Top 3 Priority Areas
+            </h2>
+            <p className="text-[#5f5e5e]/60 font-medium">
+              Focus your efforts here for maximum impact
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-4">
+            {Object.entries(pillarAverages)
+              .sort(([, a], [, b]) => a - b)
+              .slice(0, 3)
+              .map(([pillarKey, score], idx) => {
+                const pillarName = (configData.pillars as Record<string, any>)[pillarKey]?.name || "Unknown";
+                return (
+                  <div
+                    key={pillarKey}
+                    className="bg-white p-6 rounded-2xl border border-[#d6c3b0]/10 shadow-sm flex items-center justify-between group hover:border-[#df9931]/30 transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-full bg-[#df9931]/10 flex items-center justify-center text-[#df9931] font-black text-sm">
+                        #{idx + 1}
+                      </div>
+                      <span className="text-lg font-bold text-[#1b1b1b]">
+                        {pillarName}
+                      </span>
+                    </div>
+                    <span className="text-3xl font-black text-[#df9931]">
+                      {Math.round(score)}%
+                    </span>
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+      </div>
+
+      {/* ── Detailed Breakdown ─────────────────────────────────────────── */}
+      <div className="mb-32 mt-32">
+        <div className="mb-8">
+          <h2 className="text-3xl font-black tracking-tighter text-[#1b1b1b]">
+            Detailed Breakdown
+          </h2>
+          <p className="text-[#5f5e5e]/60 font-medium">
+            Your performance across all reputation pillars
+          </p>
+        </div>
+        <div className="bg-white rounded-2xl border border-[#d6c3b0]/10 shadow-sm overflow-hidden divide-y divide-[#d6c3b0]/10">
+          {Object.entries(pillarAverages)
+            .sort(([keyA], [keyB]) => Number(keyA) - Number(keyB))
+            .map(([pillarKey, score]) => {
+              const pillarName = (configData.pillars as Record<string, any>)[pillarKey]?.name || "Unknown";
+              // Calculate confidence based on score: 3.0 (0%) to 5.0 (100%)
+              const confidence = (3 + (score / 100) * 2).toFixed(1);
+              return (
+                <div
+                  key={pillarKey}
+                  className="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+                >
+                  <div>
+                    <h5 className="font-bold text-lg text-[#1b1b1b]">
+                      {pillarName}
+                    </h5>
+                    <p className="text-xs text-[#5f5e5e]/60 uppercase tracking-widest font-bold">
+                      Confidence: {confidence}/5
+                    </p>
+                  </div>
+                  <span className="text-2xl font-black text-[#1b1b1b]">
+                    {Math.round(score)}
+                  </span>
+                </div>
+              );
+            })}
+        </div>
+      </div>
+
+      {/* ── Your Reputation Roadmap ────────────────────────────────────── */}
+      <div className="mb-24 mt-32">
+        <div className="mb-12">
+          <h2 className="text-3xl font-black tracking-tighter text-[#1b1b1b]">
+            Your Reputation Roadmap
+          </h2>
+          <p className="text-[#5f5e5e]/60 font-medium">
+            Prioritized action plan to boost your score
+          </p>
+        </div>
+        <div className="relative pl-8 md:pl-12 space-y-16">
+          {/* Vertical Line */}
+          <div className="absolute left-[3px] md:left-[5px] top-0 bottom-0 w-[2px] bg-[#df9931]/20" />
+
+          {/* Milestone 1 */}
+          <div className="relative">
+            <div className="absolute -left-[35px] md:-left-[43px] top-2 w-4 h-4 rounded-full bg-[#df9931] ring-4 ring-[#fcf9f8]" />
+            <div className="space-y-4">
+              <h3 className="text-2xl font-black text-[#1b1b1b] flex items-baseline gap-3">
+                30 Days
+                <span className="text-sm uppercase tracking-widest text-[#df9931] font-bold">
+                  Quick Wins
+                </span>
+              </h3>
+              <ul className="space-y-3 text-[#5f5e5e]/80 font-medium">
+                <li className="flex items-start gap-3">
+                  <span className="text-[#df9931] mt-1.5">•</span>
+                  Audit and fix critical gaps in your lowest-scoring pillar
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#df9931] mt-1.5">•</span>
+                  Implement immediate triage for brand consistency
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#df9931] mt-1.5">•</span>
+                  Establish monitoring and crisis protocols
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Milestone 2 */}
+          <div className="relative">
+            <div className="absolute -left-[35px] md:-left-[43px] top-2 w-4 h-4 rounded-full bg-[#df9931] ring-4 ring-[#fcf9f8]" />
+            <div className="space-y-4">
+              <h3 className="text-2xl font-black text-[#1b1b1b] flex items-baseline gap-3">
+                90 Days
+                <span className="text-sm uppercase tracking-widest text-[#5f5e5e] font-bold">
+                  Strategic Improvements
+                </span>
+              </h3>
+              <ul className="space-y-3 text-[#5f5e5e]/80 font-medium">
+                <li className="flex items-start gap-3">
+                  <span className="text-[#df9931] mt-1.5">•</span>
+                  Roll out comprehensive strategy for priority areas
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#df9931] mt-1.5">•</span>
+                  Begin structural improvements across medium-weakness areas
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#df9931] mt-1.5">•</span>
+                  Build consistent content and engagement rhythm
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Milestone 3 */}
+          <div className="relative">
+            <div className="absolute -left-[35px] md:-left-[43px] top-2 w-4 h-4 rounded-full bg-[#df9931] ring-4 ring-[#fcf9f8]" />
+            <div className="space-y-4">
+              <h3 className="text-2xl font-black text-[#1b1b1b] flex items-baseline gap-3">
+                180 Days
+                <span className="text-sm uppercase tracking-widest text-[#5f5e5e] font-bold">
+                  Long-term Excellence
+                </span>
+              </h3>
+              <ul className="space-y-3 text-[#5f5e5e]/80 font-medium">
+                <li className="flex items-start gap-3">
+                  <span className="text-[#df9931] mt-1.5">•</span>
+                  Achieve excellence benchmark across all priority areas
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#df9931] mt-1.5">•</span>
+                  Solidify organizational foundation in brand strategy
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#df9931] mt-1.5">•</span>
+                  Launch proactive reputation building campaign
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
