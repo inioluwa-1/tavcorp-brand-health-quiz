@@ -217,7 +217,8 @@ export default function ResultsPage({ answers, lead }: ResultsPageProps) {
       console.error("Error generating PDF:", error);
       alert("Failed to generate PDF. Please try again.");
     } finally {
-      setIsDownloading(false);
+      // Add a small delay so users see the "Generating..." state
+      setTimeout(() => setIsDownloading(false), 600);
     }
   };
 
