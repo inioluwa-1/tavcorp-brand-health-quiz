@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import AOSProvider from "@/components/AOSProvider";
 import "./globals.css";
 
@@ -29,6 +30,17 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col w-full overflow-x-hidden" suppressHydrationWarning>
+        {/* Google Analytics Tag Placeholder */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XXXXXXXXXX');
+          `}
+        </Script>
+
         <AOSProvider />
         {children}
       </body>
